@@ -1,0 +1,20 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint:
+    name: Check style and code rules
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-node@v4.4.0
+        with:
+          node-version: 23
+      - name: Install
+        run: npm install
+      - name: ESLint
+        run: npm run lint
+      - name: Prettier
+        run: npm run format

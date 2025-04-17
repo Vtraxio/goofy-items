@@ -7,6 +7,10 @@
     "compile:watch": "tsc -w",
     "dev": "nodemon --watch src --watch test --ext ts,json --exec \"npm run bundle && npm run start\"",
     "debug": "npm run bundle && node --enable-source-maps --inspect-brk ./dist/index.js",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "lint": "eslint . --fix",
+    "lint:check": "eslint .",
     "start": "node --enable-source-maps ./dist/index.js"
   },
   "repository": {
@@ -22,11 +26,16 @@
   },
   "homepage": "https://github.com/Vtraxio/goofy-items#readme",
   "devDependencies": {
+    "@eslint/js": "^9.24.0",
     "@tsconfig/node23": "^23.0.1",
     "@types/node": "^22.14.1",
     "esbuild": "^0.25.2",
+    "eslint": "^9.24.0",
+    "eslint-config-prettier": "^10.1.2",
     "nodemon": "^3.1.9",
+    "prettier": "^3.5.3",
     "rimraf": "^6.0.1",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.30.1"
   }
 }

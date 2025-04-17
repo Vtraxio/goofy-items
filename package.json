@@ -1,0 +1,32 @@
+{
+  "name": "goofy-items",
+  "version": "1.0.0",
+  "scripts": {
+    "bundle": "rimraf dist && esbuild --outdir=dist --sourcemap --bundle --platform=node --target=node23.11.0 ./src/index.ts",
+    "compile": "tsc",
+    "compile:watch": "tsc -w",
+    "dev": "nodemon --watch src --watch test --ext ts,json --exec \"npm run bundle && npm run start\"",
+    "debug": "npm run bundle && node --enable-source-maps --inspect-brk ./dist/index.js",
+    "start": "node --enable-source-maps ./dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vtraxio/goofy-items.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Vtraxio/goofy-items/issues"
+  },
+  "homepage": "https://github.com/Vtraxio/goofy-items#readme",
+  "devDependencies": {
+    "@tsconfig/node23": "^23.0.1",
+    "@types/node": "^22.14.1",
+    "esbuild": "^0.25.2",
+    "nodemon": "^3.1.9",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.8.3"
+  }
+}

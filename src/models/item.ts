@@ -17,6 +17,11 @@ export class Item {
   }
 
   description(): string {
-    return JSON.stringify(this, null, 2);
+    return JSON.stringify(
+      // eslint-disable-next-line @typescript-eslint/no-misused-spread
+      { ...this, fragile: this.fragile ? "TAK" : "NIE" },
+      null,
+      2,
+    );
   }
 }

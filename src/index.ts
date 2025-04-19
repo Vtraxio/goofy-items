@@ -13,6 +13,7 @@ import console from "node:console";
 import * as fs from "node:fs";
 import path from "node:path";
 import { DeleteItem } from "./commands/deleteItem";
+import { ListItemsEx } from "./commands/listItemsEx";
 
 new Exit();
 new Help();
@@ -20,6 +21,7 @@ new AddItem();
 new ListItems();
 new CmdListExe();
 new DeleteItem();
+new ListItemsEx();
 
 async function main() {
   const rl = readline.createInterface({ input: stdin, output: stdout });

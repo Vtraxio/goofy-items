@@ -65,6 +65,12 @@ export class Storage {
     return true;
   }
 
+  listFragileOrHeavy(minWeight: number): void {
+    for (const item of this.items.filter((x) => x.fragile || x.weightKg > minWeight)) {
+      console.log(item.description());
+    }
+  }
+
   dumpAllDescriptions(): void {
     for (const item of this.items) {
       console.log(item.description());

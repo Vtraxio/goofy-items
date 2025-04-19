@@ -22,13 +22,15 @@ export class ArgsReader {
     const firstChar = clamped[0].slice(0, 1);
     if (['"', "'"].includes(firstChar)) {
       // Continuously add the fragments until we find the opposing apostrophe.
+      let first = true;
       for (const string of clamped) {
         str += string;
         this.position++;
-        if (string.slice(-1) === firstChar) {
+        if (string.slice(-1) === firstChar && !first) {
           break;
         }
         str += " ";
+        first = false;
       }
 
       str = str.slice(1, -1);

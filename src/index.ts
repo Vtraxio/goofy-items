@@ -10,6 +10,8 @@ import { ListItems } from "./commands/listItems";
 import { execute } from "./terminal";
 import { CmdListExe } from "./commands/cmdListExe";
 import console from "node:console";
+import * as fs from "node:fs";
+import path from "node:path";
 
 new Exit();
 new Help();
@@ -34,6 +36,19 @@ async function main() {
     warehouse: warehouse,
     stopRequested: false,
   };
+
+  const testFiles = fs.readdirSync(path.resolve("test"), { withFileTypes: true }).filter((x) => x.isFile());
+  if (testFiles.length > 0) {
+    const ans = await rl.question(
+      `Execute ${testFiles.length.toString()} test ${testFiles.length > 1 ? "files" : "file"}? (y/n) > `,
+    );
+    if (ans === "y") {
+      for (const testFile of testFiles) {
+        const fullDir = path.resolve(path.join("test", testFile.name));
+        execute(`cmd_list_exe "${fullDir}"`, context);
+      }
+    }
+  }
 
   while (!context.stopRequested) {
     const cmd = await rl.question("> ");

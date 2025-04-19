@@ -1,4 +1,5 @@
 import { command, commandRegistry, Context, ICommand } from "./core/command";
+import { styleText } from "node:util";
 
 @command
 export class Help implements ICommand {
@@ -21,12 +22,13 @@ help [command] - Shows help for the specified command.
     }
   }
 
-  run(args: string[], _ctx: Context): boolean {
+  run(args: string[], ctx: Context): boolean {
     if (args.length === 0) {
       const maxNameLength = Math.max(...commandRegistry.map((x) => x.name.length));
 
       for (const command of commandRegistry) {
-        console.log(`${command.name.padEnd(maxNameLength)} - ${command.help(false)}`);
+        const [available] = command.available(ctx);
+        console.log(`${command.name.padEnd(maxNameLength)} - ${command.help(false)}${available ? "" : styleText("red", " (n/a)")}`);
       }
 
       return true;

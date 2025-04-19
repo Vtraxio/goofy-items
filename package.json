@@ -5,7 +5,7 @@
     "bundle": "rimraf dist && esbuild --outdir=dist --sourcemap --bundle --platform=node --target=node23.11.0 ./src/index.ts --tsconfig=tsconfig.json",
     "compile": "tsc",
     "compile:watch": "tsc -w",
-    "dev": "nodemon --watch src --watch test --ext ts,json --exec \"npm run bundle && npm run start\" --no-stdin --signal SIGTERM",
+    "dev": "nodemon --watch src --watch test --ext ts,json --exec \"npm run bundle && npm run start\" --no-stdin",
     "debug": "npm run bundle && node --enable-source-maps --inspect-brk ./dist/index.js",
     "format": "prettier . --write",
     "format:check": "prettier . --check",

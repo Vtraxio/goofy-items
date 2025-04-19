@@ -1,0 +1,48 @@
+add_item Widget 2.5 5
+add_item 'Magic Cube' 1.2 7
+add_item 'Glass Vase' 0.8 6 true
+add_item 'Simple Rock' 3.0 1
+add_item 'Alien Artifact' 0.4 10
+add_item 'Weightless Charm' 0.0 3
+add_item 'Porcelain Doll' 0.5 9 true
+add_item 'Haunted Mirror' 2.2 10 true
+add_item 'Crystal Orb' 1.1 8 true
+add_item 'Plastic Toy' 0.3 2
+add_item 'Old Book' 1.0 4
+add_item 'Golden Idol' 5.5 9 true
+add_item 'Paper Plane' 0.01 1
+add_item 'Rock Sample' 2.0 3
+add_item 'Vase Shards' 0.6 7 true
+add_item 'Antique Clock' 4.5 6 true
+add_item 'Marble Block' 20.0 2
+add_item 'Feather Pen' 0.05 5
+add_item 'Iron Key' 0.2 4
+add_item 'Glass Shard' 0.1 7 true
+add_item 'Cursed Ring' 0.05 10 true
+add_item 'Wooden Spoon' 0.3 2
+add_item 'Bronze Statue' 8.0 5
+add_item 'Shattered Mirror' 1.2 9 true
+add_item 'Firework Rocket' 0.7 6
+add_item 'Chocolate Bar' 0.1 3
+add_item 'Plush Toy' 0.4 4
+add_item 'Stone Tablet' 12.5 3
+add_item 'Snow Globe' 0.9 6 true
+add_item 'Digital Watch' 0.2 5
+add_item 'Broken Phone' 0.15 6 true
+add_item 'Bag of Marbles' 0.6 4
+add_item 'Laser Pointer' 0.1 7
+add_item 'Porcelain Plate' 0.8 8 true
+add_item 'Miniature Piano' 3.2 7
+add_item 'Torn Painting' 1.1 5 true
+add_item 'Lead Figurine' 2.0 2
+add_item 'Glass Eye' 0.05 9 true
+add_item 'Mysterious Box' 5.0 10
+add_item 'Empty Jar' 0.3 4
+add_item 'Golden Spoon' 0.15 3
+add_item 'Snowflake Ornament' 0.2 6 true
+add_item 'Clockwork Mouse' 0.5 5
+add_item 'Decorative Plate' 0.9 7 true
+add_item 'Ancient Coin' 0.02 4
+add_item 'Mystic Scroll' 0.25 8
+add_item 'Shiny Pebble' 0.05 1
+add_item 'Magic Wand' 0.7 10

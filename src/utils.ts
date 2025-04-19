@@ -10,7 +10,7 @@ export async function takeSafeNumber(rl: readline.Interface, message: string, mi
       continue;
     }
 
-    if (min !== undefined && num < min) {
+    if (min !== undefined && num <= min) {
       console.log(`Enter a value larger than ${min.toString()}`);
       continue;
     }

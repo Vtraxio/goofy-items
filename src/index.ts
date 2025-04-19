@@ -4,9 +4,10 @@ import { takeSafeNumber } from "./utils";
 import { Storage } from "./models/storage";
 import { commandRegistry, Context } from "./commands/core/command";
 import { Exit } from "./commands/exit";
-import * as console from "node:console";
+import { Help } from "./commands/help";
 
 new Exit();
+new Help();
 
 async function main() {
   const rl = readline.createInterface({ input: stdin, output: stdout });

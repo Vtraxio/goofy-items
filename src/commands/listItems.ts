@@ -47,6 +47,9 @@ list_items (page)
         return false;
       }
 
+      console.log(`${items.length.toString()} total items.`);
+      const weight = items.reduce((acc, v) => acc + v.weightKg, 0);
+      console.log(`${Math.round(weight).toString()}kg total, (${Math.round(ctx.warehouse.maxWeight - weight).toString()}kg left).\n`)
       console.log(
         `${"#".padEnd(maxIndexLength)}  ${"Name".padEnd(maxNameLength)}  ${"Weight".padEnd(maxWeightLength)}  Weirdness  Fragile`,
       );

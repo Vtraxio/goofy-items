@@ -26,7 +26,7 @@ export class ArgsReader {
       for (const string of clamped) {
         str += string;
         this.position++;
-        if (string.slice(-1) === firstChar && !first) {
+        if (string.slice(-1) === firstChar && (!first || string.length > 1)) {
           break;
         }
         str += " ";

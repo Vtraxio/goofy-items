@@ -5,12 +5,23 @@ import { Storage } from "./models/storage";
 import { commandRegistry, Context } from "./commands/core/command";
 import { Exit } from "./commands/exit";
 import { Help } from "./commands/help";
+import { AddItem } from "./commands/addItem";
 
 new Exit();
 new Help();
+new AddItem();
 
 async function main() {
   const rl = readline.createInterface({ input: stdin, output: stdout });
+
+  process.on("SIGINT", () => {
+    rl.close();
+    process.exit();
+  });
+
+  process.on("exit", () => {
+    rl.close();
+  });
 
   const capacity = await takeSafeNumber(rl, "Enter default warehouse capacity: ", 0);
   const maxWeight = await takeSafeNumber(rl, "Enter default warehouse maximum weight: ", 0);

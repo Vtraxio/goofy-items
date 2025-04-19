@@ -14,6 +14,7 @@ import * as fs from "node:fs";
 import path from "node:path";
 import { DeleteItem } from "./commands/deleteItem";
 import { ListItemsEx } from "./commands/listItemsEx";
+import { AvgWeird } from "./commands/avgWeird";
 
 new Exit();
 new Help();
@@ -22,6 +23,7 @@ new ListItems();
 new CmdListExe();
 new DeleteItem();
 new ListItemsEx();
+new AvgWeird();
 
 async function main() {
   const rl = readline.createInterface({ input: stdin, output: stdout });

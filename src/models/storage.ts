@@ -71,6 +71,13 @@ export class Storage {
     }
   }
 
+  averageWeirdness(): number {
+    if (this.itemCount === 0)
+      return 0;
+
+    return this.items.reduce((acc, v) => acc + v.weightKg, 0) / this.itemCount;
+  }
+
   dumpAllDescriptions(): void {
     for (const item of this.items) {
       console.log(item.description());

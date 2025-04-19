@@ -12,12 +12,14 @@ import { CmdListExe } from "./commands/cmdListExe";
 import console from "node:console";
 import * as fs from "node:fs";
 import path from "node:path";
+import { DeleteItem } from "./commands/deleteItem";
 
 new Exit();
 new Help();
 new AddItem();
 new ListItems();
 new CmdListExe();
+new DeleteItem();
 
 async function main() {
   const rl = readline.createInterface({ input: stdin, output: stdout });

@@ -28,7 +28,9 @@ help [command] - Shows help for the specified command.
 
       for (const command of commandRegistry) {
         const [available] = command.available(ctx);
-        console.log(`${command.name.padEnd(maxNameLength)} - ${command.help(false)}${available ? "" : styleText("red", " (n/a)")}`);
+        console.log(
+          `${command.name.padEnd(maxNameLength)} - ${command.help(false)}${available ? "" : styleText("red", " (n/a)")}`,
+        );
       }
 
       return true;

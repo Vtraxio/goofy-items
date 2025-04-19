@@ -49,15 +49,17 @@ list_items (page)
 
       console.log(`${items.length.toString()} total items.`);
       const weight = items.reduce((acc, v) => acc + v.weightKg, 0);
-      console.log(`${Math.round(weight).toString()}kg total, (${Math.round(ctx.warehouse.maxWeight - weight).toString()}kg left).\n`)
+      console.log(
+        `${Math.round(weight).toString()}kg total, (${Math.round(ctx.warehouse.maxWeight - weight).toString()}kg left).\n`,
+      );
       console.log(
         `${"#".padEnd(maxIndexLength)}  ${"Name".padEnd(maxNameLength)}  ${"Weight".padEnd(maxWeightLength)}  Weirdness  Fragile`,
       );
       paginated.forEach((v, i) => {
-         console.log(
+        console.log(
           `${(i + page * 15).toString().padEnd(maxIndexLength)}  ${v.name.padEnd(maxNameLength)}  ${v.weightKg.toString().padEnd(maxWeightLength)}  ${v.weirdness.toString().padEnd(9)}  ${v.fragile.toString().padEnd(7)}`,
         );
-      })
+      });
       console.log(`(Page ${page.toString()} of ${Math.floor(items.length / 15).toString()})`);
     }
 

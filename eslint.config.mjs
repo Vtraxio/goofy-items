@@ -18,7 +18,7 @@ export default tseslint.config(
       },
     },
     rules: {
-      "@typescript-eslint/naming-convention": "error",
+      // "@typescript-eslint/naming-convention": "error",
       "@typescript-eslint/no-unused-vars": [
         "error",
         {

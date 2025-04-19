@@ -18,3 +18,9 @@ export async function takeSafeNumber(rl: readline.Interface, message: string, mi
     return num;
   }
 }
+
+// https://stackoverflow.com/questions/7225407/convert-camelcasetext-to-title-case-text
+export function camelCaseToWords(s: string) {
+  const result = s.replace(/([A-Z])/g, ' $1');
+  return result.charAt(0).toUpperCase() + result.slice(1);
+}

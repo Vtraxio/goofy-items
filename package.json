@@ -29,7 +29,6 @@
     "@eslint/js": "^9.24.0",
     "@tsconfig/node23": "^23.0.1",
     "@types/node": "^22.14.1",
-    "@types/terminal-kit": "^2.5.7",
     "esbuild": "^0.25.2",
     "eslint": "^9.24.0",
     "eslint-config-prettier": "^10.1.2",
@@ -38,9 +37,5 @@
     "rimraf": "^6.0.1",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.30.1"
-  },
-  "dependencies": {
-    "@inquirer/prompts": "^7.4.1",
-    "terminal-kit": "^3.1.2"
   }
 }

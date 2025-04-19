@@ -6,10 +6,12 @@ import { commandRegistry, Context } from "./commands/core/command";
 import { Exit } from "./commands/exit";
 import { Help } from "./commands/help";
 import { AddItem } from "./commands/addItem";
+import { ListItems } from "./commands/listItems";
 
 new Exit();
 new Help();
 new AddItem();
+new ListItems();
 
 async function main() {
   const rl = readline.createInterface({ input: stdin, output: stdout });

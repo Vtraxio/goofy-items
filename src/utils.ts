@@ -1,0 +1,20 @@
+import readline from "node:readline/promises";
+
+export async function takeSafeNumber(rl: readline.Interface, message: string, min?: number): Promise<number> {
+  while (true) {
+    const ans = await rl.question(message);
+    const num = parseInt(ans);
+
+    if (isNaN(num)) {
+      console.log("Enter a valid number!");
+      continue;
+    }
+
+    if (min !== undefined && num < min) {
+      console.log(`Enter a value larger than ${min.toString()}`);
+      continue;
+    }
+
+    return num;
+  }
+}

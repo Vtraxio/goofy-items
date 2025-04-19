@@ -4,12 +4,7 @@ export class Item {
   weirdness: number;
   fragile: boolean;
 
-  constructor(
-    name: string,
-    weightKg: number,
-    weirdness: number,
-    fragile: boolean,
-  ) {
+  constructor(name: string, weightKg: number, weirdness: number, fragile: boolean) {
     this.name = name;
     this.weightKg = weightKg;
     this.weirdness = weirdness;

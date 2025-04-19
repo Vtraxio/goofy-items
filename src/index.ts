@@ -2,8 +2,8 @@ import readline from "node:readline/promises";
 import { stdin, stdout } from "node:process";
 import { takeSafeNumber } from "./utils";
 import { Storage } from "./models/storage";
-import { commandRegistry, Context } from "./commands/core/Command";
-import { Exit } from "./commands/Exit";
+import { commandRegistry, Context } from "./commands/core/command";
+import { Exit } from "./commands/exit";
 
 new Exit();
 

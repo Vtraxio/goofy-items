@@ -18,8 +18,8 @@ export class ListItems implements ICommand {
       return `
 Shows all items in the default warehouse.
 
-list_items (ugly_view)
-\t- ugly_view: If true items will be displayed in the ugly way. (optional) (default: true)
+list_items (page)
+\t- page: Prints out a table with a nicer view, on the specified page (optional)
 `;
     } else {
       return "Shows all items in the default warehouse.";
@@ -29,29 +29,33 @@ list_items (ugly_view)
   run(args: string[], ctx: Context): boolean {
     const vArg = new ArgsReader(args);
 
-    const uglyView = vArg.extractBool(true);
+    const page = vArg.extractNum();
 
-    if (uglyView === undefined) {
-      console.log("Invalid arguments given.");
-      return false;
-    }
-
-    if (uglyView) {
+    if (page === undefined) {
       ctx.warehouse.dumpAllDescriptions();
     } else {
       const items = ctx.warehouse.items;
       const maxIndexLength = (items.length - 1).toString().length;
-      const maxNameLength = Math.max(...items.map((x) => x.name.length), 4);
-      const maxWeightLength = Math.max(...items.map((x) => x.weightKg.toString().length), 6);
+
+      // https://stackoverflow.com/questions/42761068/paginate-javascript-array
+      const paginated = items.slice(page * 15, (page + 1) * 15);
+      const maxNameLength = Math.max(...paginated.map((x) => x.name.length), 4);
+      const maxWeightLength = Math.max(...paginated.map((x) => x.weightKg.toString().length), 6);
+
+      if (paginated.length === 0) {
+        console.log(`Page does not exist, only ${(Math.floor(items.length / 15) + 1).toString()} exist.`);
+        return false;
+      }
 
       console.log(
         `${"#".padEnd(maxIndexLength)}  ${"Name".padEnd(maxNameLength)}  ${"Weight".padEnd(maxWeightLength)}  Weirdness  Fragile`,
       );
-      items.forEach((v, i) => {
+      paginated.forEach((v, i) => {
          console.log(
-          `${i.toString().padEnd(maxIndexLength)}  ${v.name.padEnd(maxNameLength)}  ${v.weightKg.toString().padEnd(maxWeightLength)}  ${v.weirdness.toString().padEnd(9)}  ${v.fragile.toString().padEnd(7)}`,
+          `${(i + page * 15).toString().padEnd(maxIndexLength)}  ${v.name.padEnd(maxNameLength)}  ${v.weightKg.toString().padEnd(maxWeightLength)}  ${v.weirdness.toString().padEnd(9)}  ${v.fragile.toString().padEnd(7)}`,
         );
       })
+      console.log(`(Page ${page.toString()} of ${Math.floor(items.length / 15).toString()})`);
     }
 
     return true;

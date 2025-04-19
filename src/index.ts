@@ -4,6 +4,7 @@ import { takeSafeNumber } from "./utils";
 import { Storage } from "./models/storage";
 import { commandRegistry, Context } from "./commands/core/command";
 import { Exit } from "./commands/exit";
+import * as console from "node:console";
 
 new Exit();
 
@@ -34,6 +35,19 @@ async function main() {
 
     if (!command) {
       console.log("Command not found.");
+      continue;
+    }
+
+    const [available, error] = command.available(context);
+    if (!available) {
+      if (error) {
+        console.log("Command not available in the current state:");
+        for (const line of error.split("\n")) {
+          console.log(`\t${line}`);
+        }
+      } else {
+        console.log("Command not available in the current state.");
+      }
       continue;
     }
 

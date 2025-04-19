@@ -1,11 +1,11 @@
-import { command, Context, ICommand } from "./core/Command";
+import { command, Context, ICommand } from "./core/command";
 
 @command
 export class Exit implements ICommand {
   name = "exit";
 
-  available(_ctx: Context): boolean {
-    return true;
+  available(_ctx: Context): [boolean, string?] {
+    return [true];
   }
 
   help(_extended: boolean): string {

@@ -12,7 +12,7 @@ export interface ICommand {
 
   help(extended: boolean): string;
 
-  available(ctx: Context): boolean;
+  available(ctx: Context): [boolean, string?];
 
   run(args: string[], ctx: Context): boolean;
 }

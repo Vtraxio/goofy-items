@@ -25,6 +25,11 @@ export class Storage {
       return false;
     }
 
+    if (item.weirdness === 7 && item.fragile && this.capacity / 2 <= this.itemCount) {
+      console.log("Item too risky to store at current item count.");
+      return false;
+    }
+
     this.items.push(item);
     this.itemCount++;
 

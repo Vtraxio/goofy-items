@@ -46,3 +46,13 @@ add_item 'Ancient Coin' 0.02 4
 add_item 'Mystic Scroll' 0.25 8
 add_item 'Shiny Pebble' 0.05 1
 add_item 'Magic Wand' 0.7 10
+add_item 'Silver Locket' 0.3 6
+add_item 'Dragon Figurine' 1.5 9 true
+add_item 'Enchanted Book' 2.0 10
+add_item 'Glass Ornament' 0.4 8 true
+add_item 'Rubber Duck' 0.2 3
+add_item 'Tiny Gear' 0.05 2
+add_item 'Music Box' 1.1 8 true
+add_item 'Crystal Shard' 0.1 9 true
+add_item 'Stone Carving' 6.0 4
+add_item 'Pocket Mirror' 0.3 5 true

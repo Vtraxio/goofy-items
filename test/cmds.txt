@@ -1,3 +1,4 @@
+add_warehouse "Dowejko Power" 100 100 true
 add_item Widget 2.5 5
 add_item 'Magic Cube' 1.2 7
 add_item 'Glass Vase' 0.8 6 true
@@ -56,3 +57,184 @@ add_item 'Music Box' 1.1 8 true
 add_item 'Crystal Shard' 0.1 9 true
 add_item 'Stone Carving' 6.0 4
 add_item 'Pocket Mirror' 0.3 5 true
+add_warehouse "Jaszkiewicz Power" 100 100 true
+add_item 'Bronze Medal' 0.5 3
+add_item 'Ancient Relic' 3.0 10
+add_item 'Glass Bottle' 0.6 5 true
+add_item 'Wooden Mask' 1.2 6
+add_item 'Golden Ring' 0.1 7
+add_item 'Toy Robot' 0.9 8
+add_item 'Stone Ring' 0.7 2
+add_item 'Delicate Teacup' 0.4 6 true
+add_item 'Iron Hammer' 4.0 1
+add_item 'Witch Hat' 0.2 9
+add_item 'Old Coin' 0.03 4
+add_item 'Crystal Ball' 2.3 10 true
+add_item 'Wind-up Toy' 0.6 5
+add_item 'Snowman Figurine' 0.5 6 true
+add_item 'Jeweled Necklace' 0.3 8
+add_item 'Empty Can' 0.2 1
+add_item 'Candle Holder' 1.0 4
+add_item 'Fairy Dust Jar' 0.1 9 true
+add_item 'Plastic Cup' 0.3 2
+add_item 'Metal Compass' 0.7 6
+add_item 'Old Letter' 0.02 5
+add_item 'Pocket Watch' 0.4 7
+add_item 'Mini Cactus' 0.6 3
+add_item 'Painted Shell' 0.1 4
+add_item 'Glass Cube' 1.1 8 true
+add_item 'Magic Token' 0.05 10
+add_item 'Small Frame' 0.9 4 true
+add_item 'Silk Ribbon' 0.01 3
+add_item 'Chess Piece' 0.2 2
+add_item 'Frozen Rose' 0.5 7 true
+add_item 'Copper Gear' 0.6 5
+add_item 'Charcoal Sketch' 0.1 6
+add_item 'Fire Opal' 0.4 9
+add_item 'Paint Tube' 0.3 4
+add_item 'Mossy Stone' 1.3 3
+add_item 'Worn Glove' 0.2 2
+add_item 'Ancient Dagger' 1.8 8
+add_item 'Origami Crane' 0.01 5
+add_item 'Mirror Fragment' 0.05 9 true
+add_item 'Snowflake Charm' 0.02 7 true
+add_item 'Old Photograph' 0.01 3
+add_item 'Tiny Hourglass' 0.4 6
+add_item 'Mini Lantern' 0.9 5
+add_item 'Hollow Skull' 3.5 10
+add_item 'Feather Quill' 0.03 4
+add_item 'Seashell Bowl' 0.7 5
+add_item 'Dragon Egg' 2.0 9 true
+add_item 'Fake Mustache' 0.01 1
+add_item 'Jade Pendant' 0.3 6
+add_item 'Magic Dice' 0.2 8
+add_item 'Crystal Dagger' 0.6 10 true
+add_item 'Gilded Frame' 2.5 6 true
+add_item 'Enchanted Mirror' 3.0 9 true
+add_item 'Frozen Tear' 0.1 8
+add_item 'Tiny Telescope' 1.0 6
+add_item 'Rune Stone' 1.4 8
+add_item 'Mechanical Eye' 0.8 9
+add_item 'Glass Flower' 0.2 10 true
+add_warehouse "Jezus Power" 100 100 true
+add_item 'Steel Nut' 0.2 2
+add_item 'Velvet Pouch' 0.1 5
+add_item 'Cursed Mask' 1.7 10
+add_item 'Ink Bottle' 0.6 4 true
+add_item 'Bone Charm' 0.3 8
+add_item 'Torn Scroll' 0.1 6
+add_item 'Silver Bell' 0.4 5
+add_item 'Mini Drum' 0.9 3
+add_item 'Rusty Nail' 0.05 1
+add_item 'Enchanted Feather' 0.02 9
+add_item 'Shadow Figurine' 1.3 10 true
+add_item 'Moon Rock' 2.0 7
+add_item 'Clock Spring' 0.2 4
+add_item 'Lava Rock' 1.8 6
+add_item 'Amber Gem' 0.5 8
+add_item 'Cracked Lens' 0.1 7 true
+add_item 'Sun Pendant' 0.6 9
+add_item 'Black Candle' 0.4 6
+add_item 'Frozen Leaf' 0.02 5 true
+add_item 'Bronze Cog' 0.3 3
+add_item 'Melted Spoon' 0.5 2
+add_item 'Painted Rock' 0.6 4
+add_item 'Giant Marble' 1.0 3
+add_item 'Mini Umbrella' 0.2 5
+add_item 'Jar of Smoke' 0.3 10 true
+add_item 'Haunted Doll' 0.7 10 true
+add_item 'Decorative Button' 0.1 2
+add_item 'Crystal Lens' 0.3 7 true
+add_item 'Scrap Metal' 2.5 3
+add_item 'Mysterious Vial' 0.2 9 true
+add_item 'Obsidian Shard' 0.4 8
+add_item 'Paper Crown' 0.05 4
+add_item 'Tiny Violin' 1.1 6
+add_item 'Shimmering Thread' 0.01 5
+add_item 'Magic Compass' 0.7 8
+add_item 'Ceramic Frog' 0.9 7 true
+add_item 'Dusty Book' 1.3 6
+add_item 'Skeleton Key' 0.2 4
+add_item 'Moon Pendant' 0.1 9
+add_item 'Leather Patch' 0.2 2
+add_item 'Hollow Gem' 0.3 7
+add_item 'Rune Tablet' 2.2 8
+add_item 'Paper Star' 0.01 5
+add_item 'Broken Gear' 0.4 6
+add_item 'Fire Crystal' 0.5 10
+add_item 'Worn Dice' 0.2 3
+add_item 'Enchanted Candle' 0.6 9 true
+add_item 'Snowy Pinecone' 0.3 4
+add_item 'Glass Heart' 0.1 8 true
+add_item 'Melted Wax' 0.2 5
+add_item 'Mystic Ring' 0.05 10
+add_item 'Copper Shard' 0.2 6
+add_item 'Chipped Fang' 0.4 7
+add_item 'Silver Mirror' 1.5 9 true
+add_item 'Puzzle Piece' 0.1 4
+add_item 'Ancient Tooth' 0.3 5
+add_item 'Wind Charm' 0.2 6
+add_item 'Creepy Mask' 1.6 10
+add_item 'Sapphire Drop' 0.05 8
+add_item 'Mini Crown' 0.2 7
+add_item 'Starlight Gem' 0.1 10 true
+add_warehouse "Skibidi Power" 100 100 true
+add_item 'Hollow Coin' 0.1 3
+add_item 'Rusty Compass' 0.6 4
+add_item 'Glass Sliver' 0.05 9 true
+add_item 'Ancient Scroll' 0.2 10
+add_item 'Magic Bell' 0.3 6
+add_item 'Carved Bone' 0.4 7
+add_item 'Frozen Ember' 0.1 8
+add_item 'Jeweled Comb' 0.5 5
+add_item 'Enchanted Thread' 0.01 9
+add_item 'Mini Chest' 1.5 6
+add_item 'Chipped Cup' 0.7 5 true
+add_item 'Obsidian Blade' 1.8 9
+add_item 'Cursed Compass' 0.4 10
+add_item 'Spirit Feather' 0.02 7
+add_item 'Marble Egg' 0.9 4
+add_item 'Dented Shield' 4.0 3
+add_item 'Tiny Skull' 0.3 6
+add_item 'Moonlit Stone' 1.2 8
+add_item 'Shadow Coin' 0.1 7
+add_item 'Frost Globe' 1.1 9 true
+add_item 'Mummified Hand' 0.8 10
+add_item 'Sparkling Sand' 0.05 6
+add_item 'Gleaming Pebble' 0.07 4
+add_item 'Wooden Heart' 0.3 5
+add_item 'Mossy Figurine' 0.6 7
+add_item 'Magic Powder' 0.2 9
+add_item 'Brittle Leaf' 0.01 5 true
+add_item 'Shattered Gem' 0.1 8 true
+add_item 'Gilded Plate' 1.6 6 true
+add_item 'Runed Orb' 2.5 9
+add_item 'Chalk Doll' 0.4 6
+add_item 'Fake Coin' 0.05 2
+add_item 'Moon Mirror' 1.3 8 true
+add_item 'Tiny Candle' 0.2 4
+add_item 'Iron Ingot' 6.0 1
+add_item 'Plasma Crystal' 0.7 10
+add_item 'Gnome Statue' 3.5 7
+add_item 'Wool Doll' 0.6 3
+add_item 'Spectral Cloth' 0.1 8
+add_item 'Woven Basket' 1.0 4
+add_item 'Painted Figurine' 0.5 6
+add_item 'Shadow Bell' 0.2 9
+add_item 'Runed Key' 0.3 7
+add_item 'Molten Shard' 0.4 10
+add_item 'Cracked Figurine' 0.6 5 true
+add_item 'Spirit Vessel' 2.0 10
+add_item 'Ancient Pebble' 0.1 4
+add_item 'Frost Pendant' 0.3 6
+add_item 'Bone Dice' 0.05 3
+add_item 'Mini Compass' 0.2 5
+add_item 'Glass Bracelet' 0.4 8 true
+add_item 'Sun Talisman' 0.6 9
+add_item 'Witch’s Bottle' 1.1 10 true
+add_item 'Cursed Lantern' 2.3 9
+add_item 'Mirror Coin' 0.2 7
+add_item 'Torn Amulet' 0.1 8
+add_item 'Golden Bell' 0.3 6
+add_item 'Star Pendant' 0.2 9
+add_item 'Crushed Crystal' 0.1 10 true

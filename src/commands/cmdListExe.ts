@@ -3,7 +3,7 @@ import { ArgsReader } from "../utils/args";
 import console from "node:console";
 import path from "node:path";
 import * as fs from "node:fs";
-import { execute } from "../terminal";
+import { execute } from "../interfaces/terminal";
 
 @command
 export class CmdListExe implements ICommand {

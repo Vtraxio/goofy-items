@@ -18,6 +18,7 @@ export interface ICommand {
 }
 
 export interface Context {
-  warehouse: Storage;
+  warehouses: Storage[];
+  selected_warehouse?: Storage;
   stopRequested: boolean;
 }

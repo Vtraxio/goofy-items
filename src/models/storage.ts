@@ -1,12 +1,15 @@
 import { Item } from "./item";
+import { normalize } from "../utils";
 
 export class Storage {
   items: Item[];
+  name: string;
   capacity: number;
   maxWeight: number;
   itemCount = 0;
 
-  constructor(capacity: number, maxWeight: number) {
+  constructor(name: string, capacity: number, maxWeight: number) {
+    this.name = name;
     this.capacity = capacity;
     this.maxWeight = maxWeight;
     this.items = [];
@@ -38,15 +41,6 @@ export class Storage {
   }
 
   deleteItem(name: string): boolean {
-    const normalize = (str: string): string => {
-      return str
-        .trim() // Remove any goofy characters at the ends.
-        .toLowerCase() // Make sure capitalization does not matter.
-        .replace(" ", "") // Make sure spaces don't matter.
-        .normalize("NFD") // Split unicode diacritic.
-        .replace(/\p{Diacritic}/gu, ""); // Remove isolated diacritics.
-    };
-
     const safeName = normalize(name);
     const idx = this.items.findIndex((x) => normalize(x.name) === safeName);
 

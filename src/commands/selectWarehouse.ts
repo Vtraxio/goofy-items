@@ -1,17 +1,15 @@
 import { command, Context, ICommand } from "./core/command";
 import { ArgsReader } from "../utils/args";
 import console from "node:console";
+import { normalize } from "../utils";
 
 @command
-export class DeleteItem implements ICommand {
-  name = "delete_item";
+export class SelectWarehouse implements ICommand {
+  name = "select_warehouse";
 
   available(ctx: Context): [boolean, string?] {
-    if (!ctx.selected_warehouse) {
-      return [false, "No warehouse selected."];
-    }
-    if (ctx.selected_warehouse.itemCount == 0) {
-      return [false, "No items in the warehouse."];
+    if (ctx.warehouses.length === 0) {
+      return [false, "No warehouses exist."];
     }
     return [true];
   }
@@ -19,10 +17,10 @@ export class DeleteItem implements ICommand {
   help(extended: boolean): string {
     if (extended) {
       return `
-Deletes the first item with the specified name.
+Selects a warehouse to use for all future operations.
 
-delete_item [name]
-\t- name: Name of the item to delete.
+select_warehouse [name]
+\t- name: Name of the warehouse to select.
 
 The name doesn't have to match exactly, the following transformations
 are performed before internally comparing the strings:
@@ -34,13 +32,11 @@ are performed before internally comparing the strings:
 NOTE: If your string has spaces you must wrap is in an apostrophe.
 `;
     } else {
-      return "Deletes the first item with the specified name.";
+      return "Selects a warehouse to use for all future operations.";
     }
   }
 
   run(args: string[], ctx: Context): boolean {
-    if (!ctx.selected_warehouse) return false;
-
     const vArg = new ArgsReader(args);
 
     const name = vArg.extractString();
@@ -50,7 +46,17 @@ NOTE: If your string has spaces you must wrap is in an apostrophe.
       return false;
     }
 
-    ctx.selected_warehouse.deleteItem(name);
+    const safeName = normalize(name);
+    const warehouse = ctx.warehouses.find((x) => normalize(x.name) === safeName);
+
+    if (!warehouse) {
+      console.log("Warehouse not found.");
+      return false;
+    }
+
+    ctx.selected_warehouse = warehouse;
+
+    console.log(`Selected warehouse ${warehouse.name}`);
 
     return true;
   }

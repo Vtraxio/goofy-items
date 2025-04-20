@@ -1,7 +1,5 @@
 import readline from "node:readline/promises";
 import { stdin, stdout } from "node:process";
-import { takeSafeNumber } from "./utils";
-import { Storage } from "./models/storage";
 import { Context } from "./commands/core/command";
 import { Exit } from "./commands/exit";
 import { Help } from "./commands/help";
@@ -15,6 +13,9 @@ import path from "node:path";
 import { DeleteItem } from "./commands/deleteItem";
 import { ListItemsEx } from "./commands/listItemsEx";
 import { AvgWeird } from "./commands/avgWeird";
+import { AddWarehouse } from "./commands/addWarehouse";
+import { SelectWarehouse } from "./commands/selectWarehouse";
+import { Warehouses } from "./commands/warehouses";
 
 new Exit();
 new Help();
@@ -24,6 +25,9 @@ new CmdListExe();
 new DeleteItem();
 new ListItemsEx();
 new AvgWeird();
+new AddWarehouse();
+new SelectWarehouse();
+new Warehouses();
 
 async function main() {
   const rl = readline.createInterface({ input: stdin, output: stdout });
@@ -33,13 +37,8 @@ async function main() {
     process.exit();
   });
 
-  const capacity = await takeSafeNumber(rl, "Enter default warehouse capacity: ", 0);
-  const maxWeight = await takeSafeNumber(rl, "Enter default warehouse maximum weight: ", 0);
-
-  const warehouse = new Storage(capacity, maxWeight);
-
   const context: Context = {
-    warehouse: warehouse,
+    warehouses: [],
     stopRequested: false,
   };
 

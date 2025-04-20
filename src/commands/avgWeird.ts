@@ -5,7 +5,10 @@ export class AvgWeird implements ICommand {
   name = "avg_weird";
 
   available(ctx: Context): [boolean, string?] {
-    if (ctx.warehouse.itemCount == 0) {
+    if (!ctx.selected_warehouse) {
+      return [false, "No warehouse selected."];
+    }
+    if (ctx.selected_warehouse.itemCount == 0) {
       return [false, "No items in the warehouse."];
     }
     return [true];
@@ -16,8 +19,10 @@ export class AvgWeird implements ICommand {
   }
 
   run(_args: string[], ctx: Context): boolean {
+    if (!ctx.selected_warehouse) return false;
+
     console.log(
-      `Average weirdness of ${ctx.warehouse.items.length.toString()} items is ${ctx.warehouse.averageWeirdness().toString()}`,
+      `Average weirdness of ${ctx.selected_warehouse.items.length.toString()} items is ${ctx.selected_warehouse.averageWeirdness().toString()}`,
     );
 
     return true;

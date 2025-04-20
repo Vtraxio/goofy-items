@@ -8,7 +8,10 @@ export class ListItems implements ICommand {
   name = "list_items";
 
   available(ctx: Context): [boolean, string?] {
-    if (ctx.warehouse.itemCount == 0) {
+    if (!ctx.selected_warehouse) {
+      return [false, "No warehouse selected."];
+    }
+    if (ctx.selected_warehouse.itemCount == 0) {
       return [false, "No items in the warehouse."];
     }
     return [true];
@@ -28,14 +31,16 @@ list_items (page)
   }
 
   run(args: string[], ctx: Context): boolean {
+    if (!ctx.selected_warehouse) return false;
+
     const vArg = new ArgsReader(args);
 
     const page = vArg.extractNum();
 
     if (page === undefined) {
-      ctx.warehouse.dumpAllDescriptions();
+      ctx.selected_warehouse.dumpAllDescriptions();
     } else {
-      const items = ctx.warehouse.items;
+      const items = ctx.selected_warehouse.items;
       const [success, error] = prettyTable(items, page, 15);
 
       if (error === PrettyTableStatus.InvalidPage) console.log("Page does not exist.");

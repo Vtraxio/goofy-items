@@ -21,6 +21,15 @@ export async function takeSafeNumber(rl: readline.Interface, message: string, mi
 
 // https://stackoverflow.com/questions/7225407/convert-camelcasetext-to-title-case-text
 export function camelCaseToWords(s: string) {
-  const result = s.replace(/([A-Z])/g, ' $1');
+  const result = s.replace(/([A-Z])/g, " $1");
   return result.charAt(0).toUpperCase() + result.slice(1);
+}
+
+export function normalize(str: string): string {
+  return str
+    .trim() // Remove any goofy characters at the ends.
+    .toLowerCase() // Make sure capitalization does not matter.
+    .replace(" ", "") // Make sure spaces don't matter.
+    .normalize("NFD") // Split unicode diacritic.
+    .replace(/\p{Diacritic}/gu, ""); // Remove isolated diacritics.
 }

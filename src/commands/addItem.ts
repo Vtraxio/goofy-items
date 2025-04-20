@@ -7,7 +7,10 @@ import { Item } from "../models/item";
 export class AddItem implements ICommand {
   name = "add_item";
 
-  available(_ctx: Context): [boolean, string?] {
+  available(ctx: Context): [boolean, string?] {
+    if (!ctx.selected_warehouse) {
+      return [false, "No warehouse selected."];
+    }
     return [true];
   }
 
@@ -30,6 +33,8 @@ NOTE: If your string has spaces you must wrap is in an apostrophe.
   }
 
   run(args: string[], ctx: Context): boolean {
+    if (!ctx.selected_warehouse) return false;
+
     if (args.length === 0) {
       console.log("No arguments specified.");
       return false;
@@ -57,6 +62,6 @@ NOTE: If your string has spaces you must wrap is in an apostrophe.
     }
 
     const item = new Item(name, weight, weirdness, fragile);
-    return ctx.warehouse.addItem(item);
+    return ctx.selected_warehouse.addItem(item);
   }
 }

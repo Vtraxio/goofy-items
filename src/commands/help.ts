@@ -26,7 +26,13 @@ help [command] - Shows help for the specified command.
     if (args.length === 0) {
       const maxNameLength = Math.max(...commandRegistry.map((x) => x.name.length));
 
-      for (const command of commandRegistry) {
+      const commands = commandRegistry.toSorted((a, b) => {
+        const [aAvailable] = a.available(ctx);
+        const [bAvailable] = b.available(ctx);
+        return (bAvailable ? 1 : 0) - (aAvailable ? 1 : 0);
+      })
+
+      for (const command of commands) {
         const [available] = command.available(ctx);
         console.log(
           `${command.name.padEnd(maxNameLength)} - ${command.help(false)}${available ? "" : styleText("red", " (n/a)")}`,

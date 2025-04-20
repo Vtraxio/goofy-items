@@ -30,7 +30,7 @@ help [command] - Shows help for the specified command.
         const [aAvailable] = a.available(ctx);
         const [bAvailable] = b.available(ctx);
         return (bAvailable ? 1 : 0) - (aAvailable ? 1 : 0);
-      })
+      });
 
       for (const command of commands) {
         const [available] = command.available(ctx);

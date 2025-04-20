@@ -56,7 +56,7 @@ NOTE: If your string has spaces you must wrap is in an apostrophe.
 
     if (autoSelect) ctx.selected_warehouse = warehouse;
 
-    console.log("Added warehouse.")
+    console.log("Added warehouse.");
 
     return true;
   }

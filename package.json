@@ -1,18 +1,7 @@
 {
-  "name": "goofy-items",
+  "name": "@goofy-items/source",
   "version": "1.0.0",
-  "scripts": {
-    "bundle": "rimraf dist && esbuild --outdir=dist --sourcemap --bundle --platform=node --target=node23.11.0 ./src/index.ts --tsconfig=tsconfig.json",
-    "compile": "tsc",
-    "compile:watch": "tsc -w",
-    "dev": "nodemon --watch src --watch test --ext ts,json --exec \"npm run bundle && npm run start\" --no-stdin",
-    "debug": "npm run bundle && node --enable-source-maps --inspect-brk ./dist/index.js",
-    "format": "prettier . --write",
-    "format:check": "prettier . --check",
-    "lint": "eslint . --fix",
-    "lint:check": "eslint .",
-    "start": "node --enable-source-maps ./dist/index.js"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Vtraxio/goofy-items.git"
@@ -27,18 +16,19 @@
   "homepage": "https://github.com/Vtraxio/goofy-items#readme",
   "devDependencies": {
     "@eslint/js": "^9.24.0",
+    "@nx/esbuild": "^20.8.0",
+    "@nx/eslint": "20.8.0",
+    "@nx/eslint-plugin": "20.8.0",
     "@tsconfig/node23": "^23.0.1",
     "@types/node": "^22.14.1",
-    "esbuild": "^0.25.2",
     "eslint": "^9.24.0",
     "eslint-config-prettier": "^10.1.2",
     "nodemon": "^3.1.9",
+    "nx": "20.8.0",
     "prettier": "^3.5.3",
     "rimraf": "^6.0.1",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.30.1",
-    "nx": "20.8.0",
-    "@nx/eslint": "20.8.0"
+    "typescript-eslint": "^8.30.1"
   },
   "nx": {}
 }

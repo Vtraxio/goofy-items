@@ -4,6 +4,7 @@ import { zValidator } from "@hono/zod-validator";
 import { z } from "zod";
 import { Storage } from "../../models/storage";
 import items from "./items";
+import { HTTPException } from "hono/http-exception";
 
 const app = new Hono()
   .get("/", (c) => {
@@ -53,7 +54,7 @@ const app = new Hono()
       const warehouse = context.warehouses[params.id];
 
       if (!warehouse) {
-        return c.notFound();
+        throw new HTTPException(404);
       }
 
       return c.json({
@@ -80,7 +81,7 @@ const app = new Hono()
       const warehouse = context.warehouses[params.id];
 
       if (!warehouse) {
-        return c.notFound();
+        throw new HTTPException(404);
       }
 
       context.warehouses.splice(params.id, 1);

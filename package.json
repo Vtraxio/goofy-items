@@ -29,6 +29,7 @@
     "@eslint/js": "^9.24.0",
     "@tsconfig/node23": "^23.0.1",
     "@types/node": "^22.14.1",
+    "dts-bundle-generator": "^9.5.1",
     "esbuild": "^0.25.2",
     "eslint": "^9.24.0",
     "eslint-config-prettier": "^10.1.2",

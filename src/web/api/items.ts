@@ -11,7 +11,7 @@ const app = new Hono()
     zValidator(
       "param",
       z.object({
-        id: z.coerce.number().nonnegative(),
+        id: z.string().nonempty(),
       }),
     ),
     zValidator(
@@ -23,7 +23,7 @@ const app = new Hono()
     (c) => {
       const params = c.req.valid("param");
       const query = c.req.valid("query");
-      const warehouse = context.warehouses[params.id];
+      const warehouse = context.warehouses.find((x) => x.cuid === params.id);
 
       if (!warehouse) {
         throw new HTTPException(404);
@@ -42,19 +42,19 @@ const app = new Hono()
     zValidator(
       "param",
       z.object({
-        id: z.coerce.number().nonnegative(),
-        iid: z.coerce.number().nonnegative(),
+        id: z.string().nonempty(),
+        iid: z.string().nonempty(),
       }),
     ),
     (c) => {
       const params = c.req.valid("param");
-      const warehouse = context.warehouses[params.id];
+      const warehouse = context.warehouses.find((x) => x.cuid === params.id);
 
       if (!warehouse) {
         throw new HTTPException(404);
       }
 
-      const item = warehouse.items[params.iid];
+      const item = warehouse.items.find((x) => x.cuid === params.iid);
 
       if (!item) {
         throw new HTTPException(404);
@@ -77,13 +77,13 @@ const app = new Hono()
     zValidator(
       "param",
       z.object({
-        id: z.coerce.number().nonnegative(),
+        id: z.string().nonempty(),
       }),
     ),
     (c) => {
       const body = c.req.valid("json");
       const params = c.req.valid("param");
-      const warehouse = context.warehouses[params.id];
+      const warehouse = context.warehouses.find((x) => x.cuid === params.id);
 
       if (!warehouse) {
         throw new HTTPException(404);
@@ -105,19 +105,19 @@ const app = new Hono()
     zValidator(
       "param",
       z.object({
-        id: z.coerce.number().nonnegative(),
-        iid: z.coerce.number().nonnegative(),
+        id: z.string().nonempty(),
+        iid: z.string().nonempty(),
       }),
     ),
     (c) => {
       const params = c.req.valid("param");
-      const warehouse = context.warehouses[params.id];
+      const warehouse = context.warehouses.find((x) => x.cuid === params.id);
 
       if (!warehouse) {
         throw new HTTPException(404);
       }
 
-      const item = warehouse.items[params.iid];
+      const item = warehouse.items.find((x) => x.cuid === params.iid);
 
       if (!item) {
         throw new HTTPException(404);

@@ -10,6 +10,7 @@ const app = new Hono()
   .get("/", (c) => {
     const warehouses = context.warehouses.map((x) => {
       return {
+        id: x.cuid,
         name: x.name,
         capacity: x.capacity,
         items: x.itemCount,
@@ -37,7 +38,15 @@ const app = new Hono()
       const warehouse = new Storage(body.name, body.capacity, body.max_weight);
       context.warehouses.push(warehouse);
 
-      return c.json("OK");
+      return c.json({
+        id: warehouse.cuid,
+        name: warehouse.name,
+        capacity: warehouse.capacity,
+        items: warehouse.itemCount,
+        max_weight: warehouse.maxWeight,
+        average_weirdness: warehouse.averageWeirdness(),
+        weight: warehouse.items.reduce((acc, v) => acc + v.weightKg, 0),
+      });
     },
   )
   .get(
@@ -45,19 +54,20 @@ const app = new Hono()
     zValidator(
       "param",
       z.object({
-        id: z.coerce.number().nonnegative(),
+        id: z.string().nonempty(),
       }),
     ),
     (c) => {
       const params = c.req.valid("param");
 
-      const warehouse = context.warehouses[params.id];
+      const warehouse = context.warehouses.find((x) => x.cuid === params.id);
 
       if (!warehouse) {
         throw new HTTPException(404);
       }
 
       return c.json({
+        id: warehouse.cuid,
         name: warehouse.name,
         capacity: warehouse.capacity,
         items: warehouse.itemCount,
@@ -72,25 +82,28 @@ const app = new Hono()
     zValidator(
       "param",
       z.object({
-        id: z.coerce.number().nonnegative(),
+        id: z.string().nonempty(),
       }),
     ),
     (c) => {
       const params = c.req.valid("param");
 
-      const warehouse = context.warehouses[params.id];
+      const idx = context.warehouses.findIndex((x) => x.cuid === params.id);
+      const warehouse = context.warehouses.at(idx);
 
-      if (!warehouse) {
+      if (!idx || !warehouse) {
         throw new HTTPException(404);
       }
 
-      context.warehouses.splice(params.id, 1);
+      context.warehouses.splice(idx, 1);
 
       return c.json({
+        id: warehouse.cuid,
         name: warehouse.name,
         capacity: warehouse.capacity,
         items: warehouse.itemCount,
-        maxWeight: warehouse.maxWeight,
+        max_weight: warehouse.maxWeight,
+        average_weirdness: warehouse.averageWeirdness(),
         weight: warehouse.items.reduce((acc, v) => acc + v.weightKg, 0),
       });
     },

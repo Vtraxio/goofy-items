@@ -1,14 +1,17 @@
 import { Item } from "./item";
 import { normalize } from "../utils";
+import cuid from "cuid";
 
 export class Storage {
   items: Item[];
+  cuid: string;
   name: string;
   capacity: number;
   maxWeight: number;
   itemCount = 0;
 
   constructor(name: string, capacity: number, maxWeight: number) {
+    this.cuid = cuid();
     this.name = name;
     this.capacity = capacity;
     this.maxWeight = maxWeight;

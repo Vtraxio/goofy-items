@@ -33,3 +33,8 @@ export function normalize(str: string): string {
     .normalize("NFD") // Split unicode diacritic.
     .replace(/\p{Diacritic}/gu, ""); // Remove isolated diacritics.
 }
+
+export enum InterfaceMode {
+  Console,
+  Web
+}

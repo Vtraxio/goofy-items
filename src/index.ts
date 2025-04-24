@@ -17,6 +17,7 @@ import { AddWarehouse } from "./commands/addWarehouse";
 import { SelectWarehouse } from "./commands/selectWarehouse";
 import { Warehouses } from "./commands/warehouses";
 import "./interfaces/hono";
+import { InterfaceMode } from "./utils";
 
 new Exit();
 new Help();
@@ -35,6 +36,8 @@ export const context: Context = {
   stopRequested: false,
 };
 
+const mode: InterfaceMode = InterfaceMode.Console;
+
 async function main() {
   const rl = readline.createInterface({ input: stdin, output: stdout });
 
@@ -45,35 +48,32 @@ async function main() {
 
   const testFiles = fs.readdirSync(path.resolve("test"), { withFileTypes: true }).filter((x) => x.isFile());
   if (testFiles.length > 0) {
-    // const ans = await rl.question(
-    //   `Execute ${testFiles.length.toString()} test ${testFiles.length > 1 ? "files" : "file"}? (y/n) > `,
-    // );
-    // if (ans === "y") {
-    for (const testFile of testFiles) {
-      const fullDir = path.resolve(path.join("test", testFile.name));
-      execute(`cmd_list_exe "${fullDir}"`, context);
+    const ans = mode === InterfaceMode.Console ? await rl.question(
+      `Execute ${testFiles.length.toString()} test ${testFiles.length > 1 ? "files" : "file"}? (y/n) > `,
+    ) : "y";
+    if (ans === "y") {
+      for (const testFile of testFiles) {
+        const fullDir = path.resolve(path.join("test", testFile.name));
+        execute(`cmd_list_exe "${fullDir}"`, context);
+      }
     }
-    // }
   }
 
-  // while (!context.stopRequested) {
-  //   const cmd = await rl.question("> ");
-  //
-  //   if (cmd.trim().length === 0) {
-  //     console.log("You must enter a command!");
-  //     return false;
-  //   }
-  //
-  //   const success = execute(cmd, context);
-  //
-  //   if (!success) {
-  //     console.log("Command did not finish successfully. :(");
-  //   }
-  // }
-  //
+  while (!context.stopRequested && mode === InterfaceMode.Console) {
+    const cmd = await rl.question("> ");
 
-  await Promise.resolve();
-  console.log();
+    if (cmd.trim().length === 0) {
+      console.log("You must enter a command!");
+      return false;
+    }
+
+    const success = execute(cmd, context);
+
+    if (!success) {
+      console.log("Command did not finish successfully. :(");
+    }
+  }
+
   rl.close();
 }
 

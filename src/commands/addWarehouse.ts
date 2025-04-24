@@ -1,9 +1,8 @@
-import { command, Context, ICommand } from "./core/command";
+import { Context, ICommand } from "./core/command";
 import { ArgsReader } from "../utils/args";
 import console from "node:console";
 import { Storage } from "../models/storage";
 
-@command
 export class AddWarehouse implements ICommand {
   name = "add_warehouse";
 

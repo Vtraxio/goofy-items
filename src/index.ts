@@ -1,35 +1,14 @@
 import readline from "node:readline/promises";
 import { stdin, stdout } from "node:process";
 import { Context } from "./commands/core/command";
-import { Exit } from "./commands/exit";
-import { Help } from "./commands/help";
-import { AddItem } from "./commands/addItem";
-import { ListItems } from "./commands/listItems";
 import { execute } from "./interfaces/terminal";
-import { CmdListExe } from "./commands/cmdListExe";
 import console from "node:console";
 import * as fs from "node:fs";
 import path from "node:path";
-import { DeleteItem } from "./commands/deleteItem";
-import { ListItemsEx } from "./commands/listItemsEx";
-import { AvgWeird } from "./commands/avgWeird";
-import { AddWarehouse } from "./commands/addWarehouse";
-import { SelectWarehouse } from "./commands/selectWarehouse";
-import { Warehouses } from "./commands/warehouses";
 import "./interfaces/hono";
 import { InterfaceMode } from "./utils";
-
-new Exit();
-new Help();
-new AddItem();
-new ListItems();
-new CmdListExe();
-new DeleteItem();
-new ListItemsEx();
-new AvgWeird();
-new AddWarehouse();
-new SelectWarehouse();
-new Warehouses();
+import { serve } from "@hono/node-server";
+import { api } from "./interfaces/hono";
 
 export const context: Context = {
   warehouses: [],
@@ -48,9 +27,12 @@ async function main() {
 
   const testFiles = fs.readdirSync(path.resolve("test"), { withFileTypes: true }).filter((x) => x.isFile());
   if (testFiles.length > 0) {
-    const ans = mode === InterfaceMode.Console ? await rl.question(
-      `Execute ${testFiles.length.toString()} test ${testFiles.length > 1 ? "files" : "file"}? (y/n) > `,
-    ) : "y";
+    const ans =
+      mode === InterfaceMode.Console
+        ? await rl.question(
+            `Execute ${testFiles.length.toString()} test ${testFiles.length > 1 ? "files" : "file"}? (y/n) > `,
+          )
+        : "y";
     if (ans === "y") {
       for (const testFile of testFiles) {
         const fullDir = path.resolve(path.join("test", testFile.name));
@@ -64,7 +46,7 @@ async function main() {
 
     if (cmd.trim().length === 0) {
       console.log("You must enter a command!");
-      return false;
+      continue;
     }
 
     const success = execute(cmd, context);
@@ -72,6 +54,10 @@ async function main() {
     if (!success) {
       console.log("Command did not finish successfully. :(");
     }
+  }
+
+  if (mode === InterfaceMode.Web) {
+    serve(api);
   }
 
   rl.close();

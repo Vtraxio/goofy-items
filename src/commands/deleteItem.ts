@@ -1,8 +1,7 @@
-import { command, Context, ICommand } from "./core/command";
+import { Context, ICommand } from "./core/command";
 import { ArgsReader } from "../utils/args";
 import console from "node:console";
 
-@command
 export class DeleteItem implements ICommand {
   name = "delete_item";
 

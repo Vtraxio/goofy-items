@@ -1,6 +1,5 @@
-import { command, Context, ICommand } from "./core/command";
+import { Context, ICommand } from "./core/command";
 
-@command
 export class AvgWeird implements ICommand {
   name = "avg_weird";
 

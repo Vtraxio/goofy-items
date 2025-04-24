@@ -1,9 +1,8 @@
-import { command, Context, ICommand } from "./core/command";
+import { Context, ICommand } from "./core/command";
 import console from "node:console";
 import { ArgsReader } from "../utils/args";
 import { prettyTable, PrettyTableStatus } from "../utils/prettyTable";
 
-@command
 export class ListItems implements ICommand {
   name = "list_items";
 

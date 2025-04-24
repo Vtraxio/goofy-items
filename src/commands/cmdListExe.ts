@@ -1,11 +1,10 @@
-import { command, Context, ICommand } from "./core/command";
+import { Context, ICommand } from "./core/command";
 import { ArgsReader } from "../utils/args";
 import console from "node:console";
 import path from "node:path";
 import * as fs from "node:fs";
 import { execute } from "../interfaces/terminal";
 
-@command
 export class CmdListExe implements ICommand {
   name = "cmd_list_exe";
 

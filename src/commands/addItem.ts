@@ -62,6 +62,12 @@ NOTE: If your string has spaces you must wrap is in an apostrophe.
     }
 
     const item = new Item(name, weight, weirdness, fragile);
-    return ctx.selected_warehouse.addItem(item);
+    const [success, error] = ctx.selected_warehouse.addItem(item);
+
+    if (error) {
+      console.log(error);
+    }
+
+    return success;
   }
 }

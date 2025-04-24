@@ -18,29 +18,24 @@ export class Storage {
     this.items = [];
   }
 
-  addItem(item: Item): boolean {
+  addItem(item: Item): [boolean, string?] {
     if (this.itemCount == this.capacity) {
-      console.log("Adding this item would exceed the warehouse capacity.");
-      return false;
+      return [false, "Adding this item would exceed the warehouse capacity."];
     }
 
-    const weights = this.items.map((v) => v.weightKg);
-    const totalWeight = weights.reduce((acc, v) => acc + v, 0);
+    const totalWeight = this.items.reduce((acc, v) => acc + v.weightKg, 0);
     if (totalWeight + item.weightKg > this.maxWeight) {
-      console.log("Adding this item would exceed the warehouse maximum weight.");
-      return false;
+      return [false, "Adding this item would exceed the warehouse maximum weight."];
     }
 
     if (item.weirdness === 7 && item.fragile && this.capacity / 2 <= this.itemCount) {
-      console.log("Item too risky to store at current item count.");
-      return false;
+      return [false, "Item too risky to store at current item count."];
     }
 
     this.items.push(item);
     this.itemCount++;
 
-    console.log("Item added.");
-    return true;
+    return [true];
   }
 
   deleteItem(name: string): boolean {

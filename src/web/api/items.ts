@@ -90,14 +90,13 @@ const app = new Hono()
       }
 
       const item = new Item(body.name, body.weight_kg, body.weirdness, body.fragile);
+      const [success, error] = warehouse.addItem(item);
 
-      if (!warehouse.addItem(item)) {
-        throw new HTTPException(400, {
-          message: "Invalid conditions.",
-        });
+      if (!success) {
+        return c.json({ message: error ?? "Unknown error" }, 400);
       }
 
-      return c.json(item);
+      return c.json(item, 200);
     },
   )
   .delete(

@@ -15,7 +15,7 @@ export const context: Context = {
   stopRequested: false,
 };
 
-const mode: InterfaceMode = InterfaceMode.Console;
+const mode: InterfaceMode = InterfaceMode.Web;
 
 async function main() {
   const rl = readline.createInterface({ input: stdin, output: stdout });
